@@ -57,13 +57,13 @@ function showDetails(item){
     <>
       <div className='text-indigo-800 font-inter text-5xl font-extrabold'>Home</div>
       <div className='w-full flex flex-col md:flex-row justify-center mb-2'>
-        <div className="w-full h-10 mb-2 md:w-1/2 bg-purple-200 flex rounded-xl border border-indigo-900 border-2 items-center">
-          <span className="w-full  hidden lg:block md:w-1/3 text-white text-center md:text-left">sort by</span>
-          <div className="w-full  rounded-tl-lg rounded-bl-lg lg:rounded-none md:w-1/3 bg-purple-500 text-white h-full  ">Date created</div>
-          <div className="w-full md:w-1/3 bg-purple-200 text-white h-full rounded-lg">Due date</div>
+        <div className="w-full h-10 mb-2 md:w-1/2 bg-indigo-100 flex rounded-xl border border-indigo-900 border-2 items-center">
+          <span className="w-full flex justify-center hidden font-bold  lg:block md:w-1/3 text-purple-800 text-center ">Sort By</span>
+          <div className="w-full  flex justify-center hover:bg-cyan-600 text-gray-900 font-bold rounded-tl-lg rounded-bl-lg lg:rounded-none md:w-1/3 bg-indigo-400 text-white h-full  ">Date Created</div>
+          <div className="w-full md:w-1/3  text-gray-800 hover:bg-cyan-600 hover:h-full font-bold  flex justify-center text-white rounded-br-lg rounded-tr-lg">Due date</div>
         </div>
-        <div onClick={createTask} className="bg-blue-900  md:hidden lg:block lg:mx-2 h-10 rounded-xl item-center p-3 text-white rounded  items-center">
-          Create New
+        <div onClick={createTask} className="bg-blue-900 hover:bg-blue-500 flex justify-center  md:hidden lg:block lg:mx-2 h-10 rounded-xl item-center p-2 text-white rounded  items-center">
+          Create New Task
         </div>
       </div>
       <div style={{ height: '50vh' }} className='flex  justify-center '>
@@ -86,7 +86,7 @@ function showDetails(item){
 
         {data.map(item=>{
           return(<>
-          <div onClick={()=>showDetails(item)} className="w-full p-4 m-1 bg-white  rounded flex items-center justify-between">
+          <div onClick={()=>showDetails(item)} className="w-full p-4 m-1 bg-white  rounded-2xl hover:border hover:bg-gray-200  hover:border-indigo-900  hover:border-2 flex delay-100 items-center justify-between">
                   <span className="text-gray-800">{item.head}</span>
                   <div className="flex">
                     <button className="bg-red-200 text-red-900 py-1 px-3 m-1 rounded">Deleted</button>
@@ -103,10 +103,10 @@ function showDetails(item){
 
 
               </div>
-              <div style={{ height: '10vh' }} className="w-full   bg-purple-400 rounded flex items-center justify-between">
+              <div style={{ height: '10vh' }} className="w-full   bg-purple-400 rounded-bl-2xl rounded-br-2xl flex items-center justify-between">
 
-                <div className="bg-purple-500 h-full text-white  w-1/2 rounded">Pending</div>
-                <div className="bg-purple-300 h-full text-white w-1/2 ounded">Completed</div>
+                <div className="bg-indigo-200 h-full text-black font-inter font-bold hover:bg-gray-400 delay-100 text-2xl text-white flex items-center justify-center h-full  w-1/2 rounded-bl-2xl"><div>Pending</div></div>
+                <div className="bg-purple-50 bg-opacity-90 text-black font-inter hover:bg-gray-400 delay-100 font-bold text-2xl flex items-center justify-center h-full text-white w-1/2 ounded"><div>Completed</div></div>
               </div>
 
             </div>
