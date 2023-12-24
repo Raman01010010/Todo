@@ -1,17 +1,55 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import Create from './Create'
 import Detail from './Detail'
-
+import data from '../data/data.json'
 export const Home = () => {
+
+console.log(data)
+
+  const [isDesktop, setIsDesktop] = useState(window.innerWidth > 768); // Adjust the threshold as needed
+
+  const handleResize = () => {
+    setIsDesktop(window.innerWidth > 768); // Adjust the threshold as needed
+  };
+
+  useEffect(() => {
+    // Attach event listener for window resize
+    window.addEventListener('resize', handleResize);
+
+    // Clean up the event listener on component unmount
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+
+
   const [showCeate,setShowCreate]=React.useState(0)
   const [showDetail,setShowDetail]=React.useState(0)
+const [task1,setTask1]=useState({
+  "Head":"",
+  "description":"",
+  "image":"",
+  "startTime":"",
+  "endTime":""
+})
+
 function createTask(){
   setShowCreate(!showCeate)
+  console.log(isDesktop)
 }
 
-function showDetails(){
+function showDetails(item){
+  if(!isDesktop)
   setShowDetail(!showDetail)
+  console.log(item)
+
+  setTask1(item)
 }
+
+
+
+
 
 
 
@@ -43,69 +81,23 @@ function showDetails(){
           Create New
         </div>
         </div>
-                <div onClick={showDetails} className="w-full p-4 m-1 bg-white  rounded flex items-center justify-between">
-                  <span className="text-gray-800">Sort by</span>
+
+
+
+        {data.map(item=>{
+          return(<>
+          <div onClick={()=>showDetails(item)} className="w-full p-4 m-1 bg-white  rounded flex items-center justify-between">
+                  <span className="text-gray-800">{item.head}</span>
                   <div className="flex">
                     <button className="bg-red-200 text-red-900 py-1 px-3 m-1 rounded">Deleted</button>
                     <button className="bg-lime-200 text-green-800 py-1 px-3 m-1 rounded">Complete</button>
                   </div>
                 </div>
 
+          </>)
+        })}
+                
 
-
-                <div className="w-full p-4 m-1 bg-white  rounded flex items-center justify-between">
-                  <span className="text-gray-800">Sort by</span>
-                  <div className="flex">
-                    <button className="bg-red-200 text-red-900 py-1 px-3 m-1 rounded">Deleted</button>
-                    <button className="bg-lime-200 text-green-800 py-1 px-3 m-1 rounded">Complete</button>
-                  </div>
-                </div>
-
-
-
-
-                <div className="w-full p-4 m-1 bg-white  rounded flex items-center justify-between">
-                  <span className="text-gray-800">Sort by</span>
-                  <div className="flex">
-                    <button className="bg-red-200 text-red-900 py-1 px-3 m-1 rounded">Deleted</button>
-                    <button className="bg-lime-200 text-green-800 py-1 px-3 m-1 rounded">Complete</button>
-                  </div>
-                </div>
-
-<div className="w-full p-4 m-1 bg-white  rounded flex items-center justify-between">
-  <span className="text-gray-800">Sort by</span>
-  <div className="flex">
-    <button className="bg-red-200 text-red-900 py-1 px-3 m-1 rounded">Deleted</button>
-    <button className="bg-lime-200 text-green-800 py-1 px-3 m-1 rounded">Complete</button>
-  </div>
-</div>
-                <div className="w-full p-4 m-1 bg-white  rounded flex items-center justify-between">
-                  <span className="text-gray-800">Sort by</span>
-                  <div className="flex">
-                    <button className="bg-red-200 text-red-900 py-1 px-3 m-1 rounded">Deleted</button>
-                    <button className="bg-lime-200 text-green-800 py-1 px-3 m-1 rounded">Complete</button>
-                  </div>
-                </div>
-                <div className="w-full p-4 m-1 bg-white  rounded flex items-center justify-between">
-                  <span className="text-gray-800">Sort by</span>
-                  <div className="flex">
-                    <button className="bg-red-200 text-red-900 py-1 px-3 m-1 rounded">Deleted</button>
-                    <button className="bg-lime-200 text-green-800 py-1 px-3 m-1 rounded">Complete</button>
-                  </div>
-                </div><div className="w-full p-4 m-1 bg-white  rounded flex items-center justify-between">
-                  <span className="text-gray-800">Sort by</span>
-                  <div className="flex">
-                    <button className="bg-red-200 text-red-900 py-1 px-3 m-1 rounded">Deleted</button>
-                    <button className="bg-lime-200 text-green-800 py-1 px-3 m-1 rounded">Complete</button>
-                  </div>
-                </div>
-                <div className="w-full p-4 m-1 bg-white  rounded flex items-center justify-between">
-                  <span className="text-gray-800">Sort by</span>
-                  <div className="flex">
-                    <button className="bg-red-200 text-red-900 py-1 px-3 m-1 rounded">Deleted</button>
-                    <button className="bg-lime-200 text-green-800 py-1 px-3 m-1 rounded">Complete</button>
-                  </div>
-                </div>
 
 
 
@@ -120,9 +112,9 @@ function showDetails(){
             </div>
             <div style={{ height:'80vh' ,background: "linear-gradient(180deg, rgba(213, 212, 255, 0.65) -1.73%, #F7F7FF 100%)" }} class="hidden lg:block col-span-2 md:col-span-1 lg:w-1/2   p-4">
               <div className="text-2xl text-left">Description</div>
-              <div className="text-xl text-left">This is a sample descis a sample descriptionis a sample descriptionis a sample descriptionription</div>
-              <div className='text-left text-red-500 text-sm'>20-23-2022</div>
-              <div className="text-xl text-left">This is a sample descis a sample descriptionis a sample descriptionis a sample descriptionription</div>
+              <div className="text-xl text-left">{task1.head}</div>
+              <div className='text-left text-red-500 text-sm'>{task1.endTime}</div>
+              <div className="text-xl text-left">{task1.description}</div>
               <img src="https://images.pexels.com/photos/276267/pexels-photo-276267.jpeg?auto=compress&cs=tinysrgb&w=600"></img>
             </div>
           </div>
@@ -133,7 +125,7 @@ function showDetails(){
         </div>
       </div>
       {showCeate&&<Create/>}
-      {showDetail&&<Detail/>}
+      {showDetail&&<Detail task={task1}/>}
     </>
   )
 }
