@@ -24,7 +24,7 @@ const task=props.task
                     <div className="bg-white w-full lg:w-1/4 rounded-lg">
                         
 
-                        <div style={{ height: '90vh', background: "linear-gradient(180deg, rgba(213, 212, 255, 0.65) -1.73%, #F7F7FF 100%)" }} class=" overflow-y-auto  p-8">
+                        <div style={{ height: '90vh', background: "linear-gradient(180deg, rgba(213, 212, 255, 0.65) -1.73%, #F7F7FF 100%)" }} className="rounded-xl overflow-y-auto  p-8">
                         <div className="flex justify-end">
                             <div onClick={handleClose} className='text-2xl'>X</div>
                         </div>
@@ -36,7 +36,8 @@ const task=props.task
                         </div>
                     </div>
                 </div>
-            )}
+            )
+            }
         </>
     );
 };
