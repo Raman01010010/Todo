@@ -9,9 +9,9 @@ export const Home = () => {
   const [isDesktop, setIsDesktop] = useState(window.innerWidth > 768); // Adjust the threshold as needed
   const [data, setData] = React.useState(data1)
 
-  const [showCeate, setShowCreate] = React.useState(0)
-  const [showDetail, setShowDetail] = React.useState(0)
-  const [confirm,setConfirm]=React.useState(0)
+  const [showCeate, setShowCreate] = React.useState(false)
+  const [showDetail, setShowDetail] = React.useState(false)
+  const [confirm, setConfirm] = React.useState(false)
   const handleResize = () => {
     setIsDesktop(window.innerWidth > 768); // Adjust the threshold as needed
   };
@@ -149,7 +149,7 @@ export const Home = () => {
       </div>
       {showCeate && <Create />}
       {showDetail && <Detail task={task1} />}
-      {confirm&&<Delete/>}
+      {confirm && <Delete />}
     </>
   )
 }
