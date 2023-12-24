@@ -115,7 +115,7 @@ const Create = () => {
     return (
         <>
             {isOpen && (
-                <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-gray-800 bg-opacity-80">
+                <div className="fixed top-0 left-0 w-full bg-opacity-30 backdrop-blur-md p-4 rounded-lg bg-gray-200 h-full flex items-center justify-center bg-gray-800 bg-opacity-80">
                     <div className="bg-white  rounded-lg">
                         <div className="flex justify-end">
 

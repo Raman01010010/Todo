@@ -77,7 +77,7 @@ function showDetails(item){
               <div className='flex justify-between'>
                 <div className='flex text-2xl'>
                   Pending Tasks</div>
-                  <div className="bg-blue-900 hidden md:block lg:hidden lg:mx-2 h-10 rounded-xl item-center p-3 text-white rounded  items-center">
+                  <div onClick={createTask} className="bg-blue-900 hidden md:block lg:hidden lg:mx-2 h-10 rounded-xl item-center p-3 text-white rounded  items-center">
           Create New
         </div>
         </div>
