@@ -102,14 +102,14 @@ export const Home = () => {
                 {data.map(item => {
                   return (<>{
                     item.isCompleted ?
-                      <div onClick={() => showDetails(item)} className="w-full p-4 m-1 bg-green-200  rounded-2xl hover:border hover:bg-gray-200  hover:border-indigo-900  hover:border-2 flex delay-100 items-center justify-between">
+                      <div data-aos="flip-down" onClick={() => showDetails(item)} className="w-full p-4 m-1 bg-green-200  rounded-2xl hover:border hover:bg-gray-200  hover:border-indigo-900  hover:border-2 flex delay-100 items-center justify-between">
                         <span className="text-gray-800">{item.head}</span>
                         <div className="flex">
                           <button onClick={handleDelete} className="bg-red-200 text-red-900 py-1 px-3 m-1 rounded">Delete</button>
                         </div>
                       </div>
                       :
-                      <div onClick={() => showDetails(item)} className="w-full p-4 m-1 bg-white  rounded-2xl hover:border hover:bg-gray-200  hover:border-indigo-900  hover:border-2 flex delay-100 items-center justify-between">
+                      <div data-aos="flip-up" onClick={() => showDetails(item)} className="w-full p-4 m-1 bg-white  rounded-2xl hover:border hover:bg-gray-200  hover:border-indigo-900  hover:border-2 flex delay-100 items-center justify-between">
                         <span className="text-gray-800">{item.head}</span>
                         <div className="flex">
                           <button onClick={handleDelete} className="bg-red-200 text-red-900 py-1 px-3 m-1 rounded">Delete</button>
@@ -147,9 +147,9 @@ export const Home = () => {
 
         </div>
       </div>
-      {showCeate && <Create />}
-      {showDetail && <Detail task={task1} />}
-      {confirm && <Delete />}
+      {showCeate && <Create set={setShowCreate}/>}
+      {showDetail && <Detail set={setShowDetail} task={task1} />}
+      {confirm && <Delete set={setConfirm} />}
     </>
   )
 }

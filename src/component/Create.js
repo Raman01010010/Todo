@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const Create = () => {
+const Create = (props) => {
     const [isOpen, setIsOpen] = useState(true);
 
     const handleClose = () => {
@@ -46,6 +46,7 @@ const Create = () => {
 
         const handleClose = () => {
             setIsOpen(false);
+            props.set(false)
         };
 
         return (
@@ -115,7 +116,7 @@ const Create = () => {
     return (
         <>
             {isOpen && (
-                <div className="fixed top-0 left-0 w-full bg-opacity-30 backdrop-blur-md p-4 rounded-lg bg-gray-200 h-full flex items-center justify-center bg-gray-800 bg-opacity-80">
+                <div data-aos="flip-left" className="fixed top-0 left-0 w-full bg-opacity-30 backdrop-blur-md p-4 rounded-lg bg-gray-200 h-full flex items-center justify-center bg-gray-800 bg-opacity-80">
                     <div className="bg-white  rounded-lg">
                         <div className="flex justify-end">
 

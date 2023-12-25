@@ -5,6 +5,7 @@ const Delete = (props) => {
 
     const handleClose = () => {
         setIsOpen(false);
+        props.set(false)
     };
 
 
@@ -20,7 +21,7 @@ const Delete = (props) => {
     return (
         <>
             {isOpen && (
-                <div className="bg-opacity-30 backdrop-blur-md p-4 rounded-lg bg-gray-200 fixed top-0 left-0 w-full h-full flex items-center justify-center bg-gray-800 bg-opacity-80">
+                <div data-aos="flip-right" className="bg-opacity-30 backdrop-blur-md p-4 rounded-lg bg-gray-200 fixed top-0 left-0 w-full h-full flex items-center justify-center bg-gray-800 bg-opacity-80">
                     <div className="bg-white border border-2 border-cyan-800 bg-cyan-100 w-full lg:w-1/4 rounded-lg">
 
 
