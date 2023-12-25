@@ -13,7 +13,7 @@ export const Home = () => {
   const [showDetail, setShowDetail] = React.useState(false)
   const [confirm, setConfirm] = React.useState(false)
   const handleResize = () => {
-    setIsDesktop(window.innerWidth > 768); // Adjust the threshold as needed
+    setIsDesktop(window.innerWidth > 1080); // Adjust the threshold as needed
   };
 
   useEffect(() => {
