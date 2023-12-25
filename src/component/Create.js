@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
 const Create = (props) => {
     const [isOpen, setIsOpen] = useState(true);
+    const [selectedDate, setSelectedDate] = useState(null);
 
     const handleClose = () => {
         setIsOpen(false);
@@ -69,8 +72,18 @@ const Create = (props) => {
                         onChange={handleInputChange}
                     />
                     <div className="flex h-10 bg-indigo-200 items-center justify-between mb-3 rounded-xl">
-                        <span className="p-3">Due on: {task.dueDate}</span>
-                        <div className="bg-indigo-600 w-1/3 text-sm text-white px-3 h-full py-1 rounded-tr-xl hover:bg-blue-200 hover:border-2 hover:border-solid hover:border-blue-500 hover:text-blue-800 rounded-br-xl">Change</div>
+                        <span className="p-3">Due on: {selectedDate ? selectedDate.toDateString() : ''}</span>
+                        <div className="bg-indigo-600 w-1/3 text-sm text-white  h-full overflow-hidden rounded-tr-xl hover:bg-blue-200 hover:border-2 hover:border-solid hover:border-blue-500 hover:text-blue-800 rounded-br-xl">
+                        <DatePicker
+            id="dueDate"
+            selected={selectedDate}
+            onChange={(date) => setSelectedDate(date)}
+            dateFormat="MM/dd/yyyy"
+            className="hidden w-full h-full top-0 left-0  cursor-pointer"
+          />
+           <label htmlFor="dueDate" className="block text-sm font-medium text-white flex justify-center">
+        Change
+      </label></div>
                     </div>
                     <div className="flex items-center flex bg-indigo-200 h-10 justify-between mb-3 rounded-xl">
                         <input
