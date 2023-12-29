@@ -87,28 +87,28 @@ export const Home = () => {
       <div className='text-indigo-800 font-inter text-5xl font-extrabold'>Home</div>
 
       {/* Sort and create task buttons */}
-      <div className='w-full flex flex-col md:flex-row justify-center mb-2'>
+      <div className='p-4 md:p-8 w-full flex flex-col md:flex-row justify-center mb-2'>
         {/* Sorting options */}
         <div className="w-full h-10 mb-2 md:w-1/2 bg-indigo-100 flex rounded-xl border border-indigo-900 border-2 items-center">
           {/* Sort by label */}
-          <span className="w-full flex justify-center hidden font-bold lg:block md:w-1/3 text-purple-800 text-center ">Sort By</span>
+          <span className="w-full flex flex-col justify-center hidden font-bold md:block  lg:block md:w-1/3 text-purple-800 text-center ">Sort By</span>
 
           {/* Date Created button */}
-          <div className="w-full flex justify-center hover:bg-cyan-600 text-gray-900 font-bold rounded-tl-lg rounded-bl-lg lg:rounded-none md:w-1/3 bg-indigo-400 text-white h-full  ">Date Created</div>
+          <div className="w-full flex flex-col md:rounded-none justify-center hover:bg-cyan-600 text-gray-900 font-bold rounded-tl-lg rounded-bl-lg lg:rounded-none md:w-1/3 bg-indigo-400 text-white h-full  ">Date Created</div>
 
           {/* Due Date button */}
-          <div className="w-full md:w-1/3  text-gray-800 hover:bg-cyan-600 hover:h-full font-bold  flex justify-center text-white rounded-br-lg rounded-tr-lg">Due date</div>
+          <div className="w-full flex-col md:w-1/3  text-gray-800 hover:bg-cyan-600 hover:h-full font-bold  flex justify-center text-white rounded-br-lg rounded-tr-lg">Due date</div>
         </div>
 
         {/* Create New Task button (visible on mobile and hidden on larger screens) */}
-        <div onClick={createTask} className="bg-blue-900 hover:bg-blue-500 flex justify-center  md:hidden lg:block lg:mx-2 h-10 rounded-xl item-center p-2 text-white rounded  items-center">
+        <div onClick={createTask} className="bg-blue-900 flex-col hover:bg-blue-500 flex justify-center  md:hidden lg:block lg:mx-2 h-10 rounded-xl item-center p-2 text-white rounded  items-center">
           Create New Task
         </div>
       </div>
 
       {/* Task list and details */}
       <div style={{ height: '50vh' }} className='flex justify-center '>
-        <div class="grid w-full md:w-full lg:w-3/4 sm:w-full grid-cols-1 ">
+        <div class="md:p-8 grid w-full md:w-full lg:w-3/4 sm:w-full grid-cols-1 ">
           {/* Task List */}
           <div style={{ height: '70vh' }} class="col-span-2 flex rounded-xl w-full  md:col-span-1 bg-purple-200">
             <div className='w-full'>
@@ -119,7 +119,7 @@ export const Home = () => {
                   </div>
 
                   {/* Create New Task button (visible on larger screens) */}
-                  <div onClick={createTask} className="bg-blue-900 hidden md:block lg:hidden lg:mx-2 h-10 rounded-xl item-center p-3 text-white rounded  items-center">
+                  <div onClick={createTask} className="flex-col justify-center p-2 bg-blue-900 hidden md:block lg:hidden lg:mx-2  rounded-xl  text-white rounded  ">
                     Create New
                   </div>
                 </div>
